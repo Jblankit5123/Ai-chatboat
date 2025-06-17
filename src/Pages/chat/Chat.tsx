@@ -6,16 +6,17 @@ import { PromptTemplates } from "./PromptTemplates";
 import { useVoiceInput } from "../../hooks/useVoiceInput";
 import { HelpButton } from "./HelpButton";
 import { Mic, Square, MessageCircle } from "lucide-react";
-
-const useAuth = () => ({ logout: () => alert("Logged out") });
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Chat = () => {
+  const navigate = useNavigate();
   const { logout } = useAuth();
   const { messages, isTyping, send } = useChatBot();
   const { add, up, down } = useChatHistory();
   const [input, setInput] = useState("");
   const scrollRef = useAutoScroll([messages]);
-const { startListening, isListening } = useVoiceInput((voiceText) => {
+  const { startListening, isListening } = useVoiceInput((voiceText) => {
   setInput(voiceText);
   setTimeout(sendMessage, 500);
 });
@@ -49,6 +50,10 @@ const { startListening, isListening } = useVoiceInput((voiceText) => {
     a.click();
     URL.revokeObjectURL(url);
   };
+   const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   return (
     <div className="flex flex-col h-screen bg-gray-100 dark:bg-gray-900">
@@ -66,7 +71,7 @@ const { startListening, isListening } = useVoiceInput((voiceText) => {
             Export Chat
           </button>
           <button
-            onClick={logout}
+            onClick={handleLogout}
             className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow"
           >
             Logout
