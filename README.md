@@ -102,3 +102,40 @@ This project uses GitHub Actions for CI/CD. The workflow includes:
 - Import sorting is automated
 - Git hooks ensure code quality before commits
 
+### Architecture Diagram
+ ┌────────────────────────────────────────────────────────┐
+ │                     App.tsx (Root)                     │
+ └────────────┬───────────────────────────────────────────┘
+              │
+              ▼
+      ┌──────────────┐
+      │   Routes     │
+      └──────┬───────┘
+             ▼
+ ┌─────────────────────────────────────────────┐
+ │              Page Components                │
+ ├─────────────────────────────────────────────┤
+ │                                             │
+ │  ┌────────────┐   ┌────────────┐            │
+ │  │ Login Page │   │ Register Page │         │
+ │  └────┬───────┘   └────┬─────────┘           │
+ │       │                │                     │
+ │       ▼                ▼                     │
+ │   Auth Context     Auth Context              │
+ │   (Hooks/context)  (Hooks/context)           │
+ │                                             │
+ │  ┌───────────────────────────────────────┐   │
+ │  │         Chat Page (Pages/chat)       │   │
+ │  └────────────┬─────────────────────────┘   │
+ │               ▼                             │
+ │      ┌────────────────────────────┐         │
+ │      │ useChatBot (Hooks)         │         │
+ │      ├────────────────────────────┤         │
+ │      │ useChatHistory (Hooks)     │         │
+ │      ├────────────────────────────┤         │
+ │      │ useVoiceInput (Hooks)      │         │
+ │      └────────────────────────────┘         │
+ └─────────────────────────────────────────────┘
+
+
+
