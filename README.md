@@ -3,7 +3,6 @@
 A frontend-only chatbot demonstrating conversation UI patterns with:  
 - React hooks state management  
 - Voice recognition integration  
-- Zero backend dependencies 
 
 ## 🚀 Features
 
