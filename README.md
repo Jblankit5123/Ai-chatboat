@@ -1,4 +1,4 @@
-# AI Chatbot
+![flow-diagram](https://github.com/user-attachments/assets/5596ae79-f080-4413-b890-51b8bcc49072)# AI Chatbot
 
 A frontend-only chatbot demonstrating conversation UI patterns with:  
 - React hooks state management  
@@ -102,6 +102,7 @@ This project uses GitHub Actions for CI/CD. The workflow includes:
 - Git hooks ensure code quality before commits
 
 ### Architecture Diagram
+
  ┌────────────────────────────────────────────────────────┐
  │                     App.tsx (Root)                     │
  └────────────┬───────────────────────────────────────────┘
@@ -136,5 +137,6 @@ This project uses GitHub Actions for CI/CD. The workflow includes:
  │      └────────────────────────────┘         │
  └─────────────────────────────────────────────┘
 
+![flow-diagram](https://github.com/user-attachments/assets/a264ca87-b4b2-40f7-92ec-b768bd67c709)
 
 
