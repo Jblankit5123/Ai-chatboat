@@ -21,6 +21,9 @@ const Login = () => {
     login(values.username);
     navigate("/chat");
   };
+  const registerAccount = () =>{
+    navigate("/register");
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 px-4">
@@ -44,6 +47,7 @@ const Login = () => {
             >
               Login
             </button>
+            <p className="cursor-pointer text-center" style={{color:"#1D4ED8"}} onClick={registerAccount}>Register Account</p>
           </Form>
         </Formik>
       </div>
